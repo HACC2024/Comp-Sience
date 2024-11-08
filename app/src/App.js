@@ -1,5 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
+import MainCarousel from './components/MainCarousel';
 
 function App() {
   return (
@@ -7,6 +8,9 @@ function App() {
       <header className="App-header">
         
       </header>
+      <body>
+        <MainCarousel />
+      </body>
     </div>
   );
 }
