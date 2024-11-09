@@ -1,19 +1,21 @@
-import logo from './logo.svg';
 import './App.css';
-import MainCarousel from './components/MainCarousel';
-import NavbarComponent from './components/Navbar';
-import FooterComponent from './components/Footer';
 
-function App() {
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Landing from './pages/Landing';
+import Carousel from './pages/Carousel'
+import PowerConsumption from './pages/PowerConsumption'
+
+export default function App() {
   return (
-    <div className="App">
-      <body style={{backgroundColor: "grey"}}>
-        <NavbarComponent />
-        <MainCarousel />
-        <FooterComponent />
-      </body>
-    </div>
-  );
+    <BrowserRouter>
+      <Routes>
+          <Route index element={<Landing />} />
+          <Route path="home" element = {<Landing />} />
+          <Route path="appliances" element={<Carousel />} />
+          <Route path="features" element={<PowerConsumption />} />
+      </Routes>
+    </BrowserRouter>
+  ); 
 }
 
-export default App;
+// export default App;
