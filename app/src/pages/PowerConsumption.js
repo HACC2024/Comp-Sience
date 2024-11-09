@@ -1,13 +1,22 @@
+import React from 'react';
 import NavbarComponent from '../components/Navbar'
 import FooterComponent from '../components/Footer'
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row'
+import Col from 'react-bootstrap/esm/Col';
+import '../styles/PowerConsumption.css'
+
 
 const PowerConsumption = () => {
     return (
-        <div>
-            <NavbarComponent />
-            ok hunter do ur thing
-            <FooterComponent />
-        </div>
+        <Container id="PowerConsumption">
+                <Row>
+                    <Col>
+                    </Col>
+                    <Col>
+                    </Col>
+                </Row>
+        </Container>
     );
 };
 
