@@ -1,0 +1,13 @@
+.appliance {
+    /* Regular styling */
+    background-color: lightgray;
+    color: black;
+    transition: transform 0.3s ease; /* Smooth transition */
+  }
+  
+  .appliance:hover {
+    /* Hover effect styling */
+    transform: scale(1.2); /* Slightly enlarge on hover */
+    background-color: darkgray; /* Change color on hover */
+    color: white;
+  }
