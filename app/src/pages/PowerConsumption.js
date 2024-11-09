@@ -1,9 +1,5 @@
-<<<<<<< Updated upstream
-=======
 import NavbarComponent from '../components/Navbar'
 import FooterComponent from '../components/Footer'
-
-import BarChart from '../components/BarChart'
 
 const PowerConsumption = () => {
     return (
@@ -16,4 +12,3 @@ const PowerConsumption = () => {
 };
 
 export default PowerConsumption;
->>>>>>> Stashed changes
