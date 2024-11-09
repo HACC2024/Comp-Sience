@@ -1,5 +1,6 @@
 import NavbarComponent from '../components/Navbar'
 import FooterComponent from '../components/Footer'
+import BarChart from '../components/BarChart';
 
 const PowerConsumption = () => {
     return (
