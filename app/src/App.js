@@ -5,10 +5,7 @@ import MainCarousel from './components/MainCarousel';
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        
-      </header>
-      <body>
+      <body style={{backgroundColor: "grey"}}>
         <MainCarousel />
       </body>
     </div>
