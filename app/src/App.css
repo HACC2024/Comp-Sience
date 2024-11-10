@@ -37,10 +37,15 @@
     transform: rotate(360deg);
   }
 }
+.font-fam {
+  font-family: 'Patrick Hand', cursive;
+  font-size: 1.5vw;
+}
 .nav-linker {
   position: relative;
   text-decoration: none;
   font-family: 'Patrick Hand', cursive;
+  font-size: 1.5vw;
 }
 .nav-linker::after {
   content: '';

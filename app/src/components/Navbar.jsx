@@ -19,8 +19,9 @@ function NavbarComponent() {
               height: '40px'
             }}
           />
-          <Navbar.Brand id="home" as={NavLink} to="/home" key="home" className="nav-linker" >Home</Navbar.Brand>
+          {/*<Navbar.Brand id="home" as={NavLink} to="/home" key="home" className="nav-linker" >Home</Navbar.Brand>*/}
           <Nav className="me-auto">
+            <Nav.Link id="home" as={NavLink} to="/home" key="home" className="nav-linker" >Home</Nav.Link>
             <Nav.Link id="appliances" as={NavLink} to="/appliances" key="appliances" className="nav-linker" >Carousel</Nav.Link>
             <Nav.Link id="features" as={NavLink} to="/features" key="features" className="nav-linker" >Interactive</Nav.Link>
           </Nav>
