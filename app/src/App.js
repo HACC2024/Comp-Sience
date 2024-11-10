@@ -4,11 +4,14 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Landing from './pages/Landing';
 import Carousel from './pages/Carousel'
 import PowerConsumption from './pages/PowerConsumption'
-import Footer from './components/Footer'
+import Navbar from './components/Navbar'
+import FooterComponent from './components/Footer'
+import NavbarComponent from './components/Navbar';
 
 export default function App() {
   return (
     <BrowserRouter>
+                <NavbarComponent />
       <div className="d-flex flex-column min-vh-100">
         <Routes>
           <Route index element={<Landing />} />
@@ -17,7 +20,7 @@ export default function App() {
           <Route path="features" element={<PowerConsumption />} />
         </Routes>
       </div>
-      <Footer />
+      <FooterComponent />
     </BrowserRouter>
   );
 }
