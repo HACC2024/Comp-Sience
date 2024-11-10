@@ -9,7 +9,6 @@ function FooterComponent() {
         Made By:{' Adam Winfield-Smith, Phat Ca, Elijah Saloma, Jared Lo, Victor Pagan, Hunter Von Tungeln'}
       </div>
     </MDBFooter>
-
   );
 }
 
