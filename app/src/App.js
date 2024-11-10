@@ -5,13 +5,14 @@ import Landing from './pages/Landing';
 import Carousel from './pages/Carousel'
 import PowerConsumption from './pages/PowerConsumption'
 import Navbar from './components/Navbar'
-import Footer from './components/Footer'
+import FooterComponent from './components/Footer'
+import NavbarComponent from './components/Navbar';
 
 export default function App() {
   return (
     <BrowserRouter>
+                <NavbarComponent />
       <div className="d-flex flex-column min-vh-100">
-        <Navbar />
         <Routes>
           <Route index element={<Landing />} />
           <Route path="home" element={<Landing />} />
@@ -19,7 +20,7 @@ export default function App() {
           <Route path="features" element={<PowerConsumption />} />
         </Routes>
       </div>
-      <Footer />
+      <FooterComponent />
     </BrowserRouter>
   );
 }

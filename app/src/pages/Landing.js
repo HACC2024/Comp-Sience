@@ -5,9 +5,7 @@ const Landing = () => {
     return (
         <div>
             <body style={{ backgroundColor: "grey" }}>
-                <NavbarComponent />
-                ok adam or elijah do ur thing
-                <FooterComponent />
+                
             </body>
         </div>
     );
