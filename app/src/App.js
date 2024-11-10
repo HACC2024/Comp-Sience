@@ -11,7 +11,6 @@ export default function App() {
   return (
     <BrowserRouter>
       <div className="d-flex flex-column min-vh-100">
-        <Navbar />
         <Routes>
           <Route index element={<Landing />} />
           <Route path="home" element={<Landing />} />
