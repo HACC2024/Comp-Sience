@@ -1,6 +1,6 @@
 # Comp-Sience
 
-Our site is deployed at https://hacc2024.github.io/Comp-Sience/ /
+Our site is deployed at https://hacc2024.github.io/Comp-Sience/ \
 Our backend repository is here: 
 
 This webapp is for the Hawaii Keiki Museum that showcases
