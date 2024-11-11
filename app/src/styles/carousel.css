@@ -1,3 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap');
 .mainCarouselSlide {
     background-image: url('https://via.placeholder.com/800x400');
+}
+
+.carouselFont {
+    font-family: 'Patrick Hand', cursive !important;
 }
