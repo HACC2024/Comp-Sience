@@ -1,7 +1,7 @@
 # Comp-Sience
 
 Our site is deployed at https://hacc2024.github.io/Comp-Sience/ \
-Our backend repository is here: 
+Our backend repository is here: https://github.com/PhatCa/hacc-comp-sience-backend
 
 This webapp is for the Hawaii Keiki Museum that showcases
 an “energy meter” to display energy used by various appliance and devices
