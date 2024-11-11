@@ -8,6 +8,8 @@ import Button from 'react-bootstrap/Button'
 
 const BASE_URL = "https://hacc-comp-sience-backend.vercel.app/api/appliances/energy-usage/"
 
+const POST_URL = "https://hacc-comp-sience-backend.vercel.app/api/appliances/toggle/"
+
 export const fetchData = async () => {
     try {
         const response = await axios.get(`${BASE_URL}`);
@@ -18,12 +20,25 @@ export const fetchData = async () => {
     }
 };
 
+export const postData = async ({ applianceID }) => {
+    try {
+        console.log(applianceID)
+        const response = await axios.post(`${POST_URL}${applianceID}`);
+        //console.log(`${POST_URL}${applianceID}`)
+        return await fetchData()
+    } catch (error) {
+        console.log("Can't post Data", error)
+        throw error;
+    }
+};
+
 
 const NewApplianceButton = ({ updatePowerConsumption }) => {
     const [appliances, setAppliances] = useState([]);
     const [loading, setLoading] = useState(false);
     const [hoveredAppliance, setHoveredAppliance] = useState(null);
     const [error, setError] = useState(null);
+    const [currentPower, setCurrentPower] = useState(0);
 
     useEffect(() => {
         const getAppliances = async () => {
@@ -31,6 +46,7 @@ const NewApplianceButton = ({ updatePowerConsumption }) => {
             try {
                 const result = await fetchData();
                 setAppliances(result.appliance_list);
+                setCurrentPower(result.total_power_usage.total_power_usage);
             } catch (err) {
                 setError(err);
             } finally {
@@ -43,20 +59,26 @@ const NewApplianceButton = ({ updatePowerConsumption }) => {
     if (loading) return <p>Loading...</p>;
     if (error) return <p>Error: {error.message}</p>;
 
-    const toggleAppliance = (appliance) => {
+    const toggleAppliance = async (appliance) => {
         const updatedAppliance = { ...appliance, is_on: !appliance.is_on };
         const updatedAppliances = appliances.map((a) =>
             a.id === appliance.id ? updatedAppliance : a
         );
-        setAppliances(updatedAppliances);
-
-        // Update power consumption based on whether the appliance is on or off
-        if (updatedAppliance.is_on) {
-            // If appliance is turned on, increment power consumption
-            updatePowerConsumption(appliance.power_usage, 'increment');
-        } else {
-            // If appliance is turned off, decrement power consumption
-            updatePowerConsumption(appliance.power_usage, 'decrement');
+        setAppliances(updatedAppliances);  // Optimistic UI update
+    
+        try {
+            await postData({ applianceID: appliance.id });  // Wait for the backend response
+    
+            // Update power consumption based on whether the appliance is on or off
+            if (updatedAppliance.is_on) {
+                updatePowerConsumption(appliance.power_usage, 'increment');
+            } else {
+                updatePowerConsumption(appliance.power_usage, 'decrement');
+            }
+        } catch (error) {
+            console.error("Error toggling appliance", error);
+            // Revert UI change if the request fails
+            setAppliances(appliances);
         }
     };
 
