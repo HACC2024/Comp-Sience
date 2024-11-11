@@ -1,6 +1,6 @@
 
 import React, { useState, useEffect } from 'react';
-import NavbarComponent from '../components/Navbar';
+import NavbarComponent from '../components/NavbarComponent';
 import FooterComponent from '../components/Footer';
 
 const Landing = () => {

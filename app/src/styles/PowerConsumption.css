@@ -1,4 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap');
+
 .PowerConsumption {
     min-height: 100vh;
     text-align: center;
+    font-family: 'Patrick Hand', cursive;
+}
+
+.PowerUsage {
+    font-family: 'Patrick Hand', cursive !important;
+    font-size: 2.5em;
+}
+
+.PowerCost {
+    font-size: 1.2em;
 }

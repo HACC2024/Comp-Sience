@@ -5,7 +5,7 @@ import Landing from './pages/Landing';
 import Carousel from './pages/Carousel'
 import PowerConsumption from './pages/PowerConsumption'
 import FooterComponent from './components/Footer'
-import NavbarComponent from './components/Navbar';
+import NavbarComponent from './components/NavbarComponent';
 
 export default function App() {
   return (
