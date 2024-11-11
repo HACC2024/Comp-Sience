@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from 'react';
+import '../styles/carousel.css'
 import Carousel from 'react-bootstrap/Carousel';
 import Appliance from './Appliance';
 import Row from 'react-bootstrap/Row';
@@ -66,15 +67,15 @@ const MainCarousel = () => {
                                             <Card style={{ width: "200px", height: "300px", padding: "10px" }}>
                                                 <Card.Img 
                                                     variant="top" 
-                                                    src={myImage} 
+                                                    src={appliance.image_url} 
                                                     style={{ height: "150px", objectFit: "cover" }} 
                                                 />
                                                 <Card.Body>
-                                                    <Card.Title style={{ fontSize: "1rem", textAlign: "center", whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>
+                                                    <Card.Title className="carouselFont" style={{ fontSize: "1.2rem", textAlign: "center", whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>
                                                         {appliance.name}
                                                     </Card.Title>
-                                                    <Card.Text style={{ fontSize: "0.9rem", textAlign: "center" }}>
-                                                        {appliance.name} is using a total of {appliance.power_usage} energy!!
+                                                    <Card.Text className="carouselFont" style={{ fontSize: "0.9rem", textAlign: "center" }}>
+                                                        {appliance.name} is uses a total of {appliance.power_usage} Watts!
                                                     </Card.Text>
                                                 </Card.Body>
                                             </Card>
