@@ -55,7 +55,7 @@ const MainCarousel = () => {
     const applianceChunks = chunkArray(appliances, 4);
 
     return (
-        <Carousel style={{ backgroundColor: "grey" }} slide={false}>
+        <Carousel style={{ backgroundColor: "black" }} slide={false}>
             {applianceChunks.map((chunk, index) => (
                 <Carousel.Item key={index}>
                     <Container>
@@ -75,7 +75,7 @@ const MainCarousel = () => {
                                                         {appliance.name}
                                                     </Card.Title>
                                                     <Card.Text className="carouselFont" style={{ fontSize: "0.9rem", textAlign: "center" }}>
-                                                        {appliance.name} is uses a total of {appliance.power_usage} Watts!
+                                                        {appliance.name} uses a total of {appliance.power_usage} Watts!
                                                     </Card.Text>
                                                 </Card.Body>
                                             </Card>
