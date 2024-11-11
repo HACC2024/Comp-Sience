@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 import Col from 'react-bootstrap/Col'
 import myImage from '../images/lightbulb.png';
 import '../styles/appliance.css';
@@ -65,16 +65,11 @@ const NewApplianceButton = ({ updatePowerConsumption }) => {
             a.id === appliance.id ? updatedAppliance : a
         );
         setAppliances(updatedAppliances);  // Optimistic UI update
-    
+
         try {
             await postData({ applianceID: appliance.id });  // Wait for the backend response
-    
+            updatePowerConsumption();
             // Update power consumption based on whether the appliance is on or off
-            if (updatedAppliance.is_on) {
-                updatePowerConsumption(appliance.power_usage, 'increment');
-            } else {
-                updatePowerConsumption(appliance.power_usage, 'decrement');
-            }
         } catch (error) {
             console.error("Error toggling appliance", error);
             // Revert UI change if the request fails
@@ -112,41 +107,29 @@ const NewApplianceButton = ({ updatePowerConsumption }) => {
                             padding: '10px', // Padding inside the appliance box
                         }}
                         className="appliance"
-                        onMouseEnter={() => setHoveredAppliance(appliance)}
-                        onMouseLeave={() => setHoveredAppliance(null)}
-                    >
-                        <img src={myImage} style={{ maxWidth: '100%' }} alt={appliance.name} />
 
-                        {/* Hover Information */}
-                        {hoveredAppliance && hoveredAppliance.id === appliance.id && (
-                            <div
-                                style={{
-                                    position: 'absolute',
-                                    top: 0,
-                                    left: 0,
-                                    width: '100%',
-                                    height: '100%',
-                                    backgroundColor: 'rgba(0, 0, 0, 0.6)',
-                                    color: 'white',
-                                    display: 'flex',
-                                    justifyContent: 'center',
-                                    alignItems: 'center',
-                                    flexDirection: 'column',
-                                    padding: '5px', // Padding inside the hover info box
-                                }}
-                            >
-                                <p style={{ margin: '5px' }}>{appliance.name}</p>
-                                <p style={{ margin: '5px' }}>{appliance.is_on ? 'On' : 'Off'}</p>
-                                <p style={{ margin: '5px' }}>Power Usage: {appliance.power_usage}W</p>
-                            </div>
-                        )}
+                    >
+                        <img src={appliance.image_url} style={{ maxWidth: '100%' }} alt={appliance.name} />
                     </div>
 
                     {/* Buttons Inline with Image */}
-                    <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', padding: '5px' }}>
-                    <Button onClick={() => toggleAppliance(appliance)}>
+                    <div
+                        style={{
+                            display: 'flex',
+                            flexDirection: 'row', // Place name and button side by side
+                            alignItems: 'center', // Center them vertically
+                            gap: '10px', // Space between name and button
+                            padding: '5px',
+                        }}
+                    >
+                        <p style={{ margin: 0 }}>{appliance.name}</p> {/* Name */}
+                        <Button onClick={() => toggleAppliance(appliance)} style={{
+                            backgroundColor: appliance.is_on ? 'red' : 'blue', // Red when on, blue when off
+                            color: 'white', // Ensure the text is white for readability
+                            borderColor: 'transparent', // Optionally remove the border
+                        }}>
                             {appliance.is_on ? 'Turn Off' : 'Turn On'}
-                    </Button>
+                        </Button>
                     </div>
                 </Col>
             ))}
