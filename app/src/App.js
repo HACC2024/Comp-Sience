@@ -9,7 +9,7 @@ import NavbarComponent from './components/NavbarComponent';
 
 export default function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename='/Comp-Sience'>
       <NavbarComponent />
       <div className="d-flex flex-column min-vh-100">
         <Routes>
